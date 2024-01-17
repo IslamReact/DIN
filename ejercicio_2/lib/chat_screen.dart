@@ -49,7 +49,7 @@ class _ChatView extends StatelessWidget {
             },
           ),
         ),
-        MsgFieldBox(),
+        MsgFieldBox(onValue: (String value) {  },),
       ]),
     );
   }
