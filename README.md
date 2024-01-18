@@ -7,6 +7,7 @@
 El repositorio está organizado de la siguiente manera:
 
 - **/Ejercicio1:** Aplicacion flutter chat.
+- **/Ejercicio2:** Aplicacion flutter visor de imagenes.
 
 Cada carpeta de ejercicio contiene:
 
