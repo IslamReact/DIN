@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../provider/DiscoverProvider.dart';
-import '../views/image_scrollable.dart';
+import '../views/video_scrollable.dart';
 
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
@@ -19,15 +19,20 @@ class DiscoverScreen extends StatelessWidget {
                       Positioned(
                         left: 16,
                         bottom: 16,
-                        child: Text(
-                          discoverProvider.videoPost.isNotEmpty
-                              ? discoverProvider
-                                  .videoPost[discoverProvider.videoPosition]
-                                  .subt
-                              : '',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
+                        child: SizedBox(
+                          width: 250,
+                          child: Text(
+                            discoverProvider.videoPost.isNotEmpty
+                                ? discoverProvider
+                                    .videoPost[discoverProvider.videoPosition]
+                                    .subt
+                                : '',
+                            maxLines: 2,
+                            style: const TextStyle(
+                              shadows: [Shadow(offset: Offset(2, 2), blurRadius: 1)],
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                       ),

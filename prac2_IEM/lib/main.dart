@@ -9,9 +9,7 @@ import 'components/button.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) =>
-      DiscoverProvider()
-        ..cargaListaVideoPost(),
+      create: (context) => DiscoverProvider()..cargaListaVideoPost(),
       child: const MyApp(),
     ),
   );
@@ -31,28 +29,22 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         title: 'Islam El Mrabet Larhzaoui',
         theme: theme,
-        home: const Scaffold(
-          body: Center(
+        home: Scaffold(
+          body: const Center(
             child: DiscoverScreen(),
           ),
-          floatingActionButton: ButtonColumn(likes: 0, views: 0),
+          floatingActionButton: ButtonColumn(
+            likes: discoverProvider.videoPost.isNotEmpty
+                ? discoverProvider
+                    .videoPost[discoverProvider.videoPosition].likes
+                : 0,
+            views: discoverProvider.videoPost.isNotEmpty
+                ? discoverProvider
+                    .videoPost[discoverProvider.videoPosition].views
+                : 0,
+          ),
         ),
       );
     });
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

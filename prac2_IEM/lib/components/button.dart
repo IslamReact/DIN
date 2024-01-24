@@ -2,8 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class ButtonColumn extends StatelessWidget {
-  final int likes;
-  final int views;
+  final int ?likes;
+  final int ?views;
 
   const ButtonColumn({super.key, required this.likes, required this.views});
 
@@ -30,7 +30,7 @@ class ButtonColumn extends StatelessWidget {
           elevation: 0.0,
           child: Column(
             children: [
-               const Icon( Icons.remove_red_eye,color: Colors.deepPurple),
+              const Icon( Icons.remove_red_eye,color: Colors.deepPurple),
               Text("$likes")
             ],
           ),
@@ -43,6 +43,7 @@ class ButtonColumn extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon( Icons.play_circle_outline,color: Colors.white),
               ],
@@ -53,3 +54,4 @@ class ButtonColumn extends StatelessWidget {
     );
   }
 }
+

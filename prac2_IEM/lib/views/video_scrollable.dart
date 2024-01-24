@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../domain/video_posts.dart';
 import '../provider/DiscoverProvider.dart';
+import '../screens/full_screen_video.dart';
 
 class VideoScrollableView extends StatelessWidget {
   final List<VideoPost> videoPosts;
@@ -18,9 +19,14 @@ class VideoScrollableView extends StatelessWidget {
           scrollDirection: Axis.vertical,
           itemCount: videoPosts.length,
           itemBuilder: (context, index) {
-            return Image.asset(
-              videoPosts[index].videoUrl,
-              fit: BoxFit.cover,
+            return Scaffold(
+              body: Stack(
+                children: [
+                  SizedBox.expand(
+                    child: FullScreenVideoPlayer(url:videoPosts[index].videoUrl),
+                  )
+                ],
+              ),
             );
           });
     });
