@@ -1,11 +1,19 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
+import '../provider/DiscoverProvider.dart';
+
 class ButtonColumn extends StatelessWidget {
   final int ?likes;
   final int ?views;
+  final DiscoverProvider discoverProvider;
 
-  const ButtonColumn({super.key, required this.likes, required this.views});
+  const ButtonColumn({
+    Key? key,
+    required this.likes,
+    required this.views,
+    required this.discoverProvider,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +47,9 @@ class ButtonColumn extends StatelessWidget {
           infinite: true,
           duration: const Duration(seconds:4),
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              discoverProvider.setVolumeUp(!discoverProvider.isVolumeUp);
+            },
             backgroundColor: Colors.transparent,
             elevation: 0,
             child: const Column(

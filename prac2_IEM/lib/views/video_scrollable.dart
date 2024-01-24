@@ -23,7 +23,10 @@ class VideoScrollableView extends StatelessWidget {
               body: Stack(
                 children: [
                   SizedBox.expand(
-                    child: FullScreenVideoPlayer(url:videoPosts[index].videoUrl),
+                    child: FullScreenVideoPlayer(
+                      url: videoPosts[index].videoUrl,
+                      discoverProvider: discoverProvider,
+                    ),
                   )
                 ],
               ),

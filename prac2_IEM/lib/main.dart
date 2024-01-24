@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
                 ? discoverProvider
                     .videoPost[discoverProvider.videoPosition].views
                 : 0,
+            discoverProvider: discoverProvider,
           ),
         ),
       );
