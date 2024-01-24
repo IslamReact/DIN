@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:prac2_iem/domain/ Image_Post.dart';
-import '../model/modelo_imagen_local.dart';
-import '../shared/local_image_posts.dart';
+import 'package:prac2_iem/domain/video_posts.dart';
+import '../model/modelo_video_local.dart';
+import '../shared/local_video_posts.dart';
 
 class DiscoverProvider extends ChangeNotifier {
+  List<VideoPost> _videoPosts = [];
+  bool _isLoading = false;
+  int _videoPosition = 0;
 
-  List<ImagePost> imagePosts = [];
-  bool isLoading = false;
+  List<VideoPost> get videoPost => _videoPosts;
 
-  cargaListaImagePosts() async {
+  bool get isLoading => _isLoading;
+
+  int get videoPosition => _videoPosition;
+
+  /// Carga la lista de imagenes
+  ///
+  /// @return void
+  cargaListaVideoPost() async {
     await Future.delayed(const Duration(seconds: 3));
 
-    List<Map<String, dynamic>> imagePostsData = obtenerDatosLocales().cast<Map<String, dynamic>>();
+    _videoPosts = videoPosts
+        .map((map) => ModeloVideoLocal.fromMap(map).toVideoPost())
+        .toList();
 
-    imagePosts = imagePostsData.map((map) =>
-        ModeloImagenLocal.fromMap(map).toImagePost()).toList();
-
-    isLoading = true;
+    _isLoading = true;
 
     notifyListeners();
-
   }
-}
 
-List<ImagePost> obtenerDatosLocales() {
-  return imagePosts.map((map) =>
-      ImagePost(
-        subt: map['name'] ?? 'No tiene nombre',
-        url: map['imgUrl'],
-        likes: map['likes'] ?? 0,
-        views: map['views'] ?? 0,
-      )).toList();
+  /// Actualiza la posicion de la imagen
+  ///
+  /// @param finalPosition
+  void updatePosition(int finalPosition) {
+    _videoPosition = finalPosition;
+    notifyListeners();
+  }
 }
