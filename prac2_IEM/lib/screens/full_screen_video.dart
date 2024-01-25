@@ -13,7 +13,6 @@ class FullScreenVideoPlayer extends StatefulWidget {
     required this.discoverProvider,
   }) : super(key: key);
 
-
   @override
   State<FullScreenVideoPlayer> createState() => _FullScreenVideoPlayerState();
 }
@@ -26,7 +25,7 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
     super.initState();
     _controller = VideoPlayerController.asset(widget.url)
       ..setLooping(true)
-      ..setVolume(widget.discoverProvider.isVolumeUp ? 1.0 : 0.0)
+      ..setVolume(0.0)
       ..play()
       ..initialize().then((_) {
         setState(() {});
@@ -35,9 +34,22 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return (!_controller.value.isInitialized)
-        ? const Center(child: CircularProgressIndicator())
-        : VideoPlayer(_controller);
+    DiscoverProvider discoverProvider = widget.discoverProvider;
+    if (!_controller.value.isInitialized) {
+      return const Center(child: CircularProgressIndicator());
+    } else {
+      _controller.setVolume(discoverProvider.isVolumeUp);
+      return AspectRatio(
+          aspectRatio: _controller.value.aspectRatio,
+          child: GestureDetector(
+            onTap: () {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            },
+            child: VideoPlayer(_controller),
+          ));
+    }
   }
 
   @override
@@ -45,5 +57,4 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
     _controller.dispose();
     super.dispose();
   }
-
 }

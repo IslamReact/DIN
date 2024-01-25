@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../provider/DiscoverProvider.dart';
 
@@ -17,6 +18,8 @@ class ButtonColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DiscoverProvider discoverProvider = context.watch<DiscoverProvider>();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -48,7 +51,7 @@ class ButtonColumn extends StatelessWidget {
           duration: const Duration(seconds:4),
           child: FloatingActionButton(
             onPressed: () {
-              discoverProvider.setVolumeUp(!discoverProvider.isVolumeUp);
+              discoverProvider.toggleAudio();
             },
             backgroundColor: Colors.transparent,
             elevation: 0,

@@ -7,12 +7,11 @@
 El repositorio está organizado de la siguiente manera:
 
 - **/Ejercicio1:** Aplicacion flutter chat.
-- **/Ejercicio2:** Aplicacion flutter visor de imagenes.
+- **/catalog_ie5:** Aplicacion flutter catalogo.
 
 Cada carpeta de ejercicio contiene:
 
 1. **README.md:** Detalles específicos del ejercicio, requisitos y pasos a seguir.
-2. **/Solucion:** Carpeta opcional que contiene posibles soluciones al ejercicio.
 
 ## Contribución
 
