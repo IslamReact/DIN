@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:prac_ie5/screen/buttons_screen.dart';
 import 'package:prac_ie5/screen/cards_screen.dart';
-import 'package:prac_ie5/screen/clothes_screen.dart';
+import 'package:prac_ie5/screen/animations_screen.dart';
 import 'package:prac_ie5/screen/food_screen.dart';
 import 'package:prac_ie5/screen/home_screen.dart';
 
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/buttons': (context) =>  ButtonsScreen(),
         '/cards': (context) =>  CardsScreen(),
-        '/clothes': (context) =>  ClothesScreen(),
+        '/animations': (context) =>  AnimationsScreen(),
         '/food': (context) =>  FoodScreen(),
       },
       title: 'Flutter Demo',

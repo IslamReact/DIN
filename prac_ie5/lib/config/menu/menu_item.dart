@@ -23,9 +23,9 @@ List<MenuItem> menuItems = [
     icono: Icons.credit_card,
   ),
   MenuItem(
-    titulo: "Clothes",
-    subtitulo: "Clothes catalogue",
-    ruta: "/clothes",
+    titulo: "Animations",
+    subtitulo: "Animations catalogue",
+    ruta: "/animations",
     icono: Icons.shop,
   ),
   MenuItem(
