@@ -1,11 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:prac_ie5/screen/buttons_screen.dart';
-import 'package:prac_ie5/screen/cards_screen.dart';
-import 'package:prac_ie5/screen/animations_screen.dart';
-import 'package:prac_ie5/screen/food_screen.dart';
-import 'package:prac_ie5/screen/home_screen.dart';
-
+import 'config/imports/imports.dart';
 import 'config/theme/app_theme.dart';
 
 void main() {
@@ -33,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         '/buttons': (context) =>  ButtonsScreen(),
         '/cards': (context) =>  CardsScreen(),
         '/animations': (context) =>  AnimationsScreen(),
-        '/food': (context) =>  FoodScreen(),
+        '/gradients': (context) =>  GradientScreen(),
       },
       title: 'Flutter Demo',
       theme: AppTheme(colorSelected: colorSelected).generateThemeData(),

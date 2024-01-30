@@ -29,9 +29,9 @@ List<MenuItem> menuItems = [
     icono: Icons.shop,
   ),
   MenuItem(
-    titulo: "Food",
-    subtitulo: "Foods catalogue",
-    ruta: "/food",
-    icono: Icons.fastfood_sharp,
+    titulo: "Gradient",
+    subtitulo: "Gradient catalogue",
+    ruta: "/gradients",
+    icono: Icons.gradient,
   )
 ];
