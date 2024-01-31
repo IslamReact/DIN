@@ -33,5 +33,11 @@ List<MenuItem> menuItems = [
     subtitulo: "Gradient catalogue",
     ruta: "/gradients",
     icono: Icons.gradient,
+  ),
+  MenuItem(
+    titulo: "Progress Indicators",
+    subtitulo: "Progress Indicators catalogue",
+    ruta: "/progress",
+    icono: Icons.circle_outlined,
   )
 ];

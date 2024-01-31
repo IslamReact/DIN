@@ -34,11 +34,13 @@ class CardInkwellExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final schemaColors = Theme.of(context).colorScheme;
+
     return Center(
       child: Card(
         clipBehavior: Clip.hardEdge,
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
+          splashColor: schemaColors.onPrimaryContainer,
           onTap: () {
             debugPrint('Card tapped.');
           },

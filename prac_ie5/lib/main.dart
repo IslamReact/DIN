@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
         '/cards': (context) =>  CardsScreen(),
         '/animations': (context) =>  AnimationsScreen(),
         '/gradients': (context) =>  GradientScreen(),
+        '/progress': (context) =>  ProgressIndicatorScreen(),
       },
       title: 'Flutter Demo',
       theme: AppTheme(colorSelected: colorSelected).generateThemeData(),
